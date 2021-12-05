@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 10,
     fontFamily: "Roboto Condensed",
   },
+  appBar: {},
 }));
 
 const darkTheme = createTheme({
@@ -50,7 +51,7 @@ function Header() {
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar color="transparent" position="static">
-        <Container>
+        <Container className={classes.appBar}>
           <Toolbar>
             <Typography
               onClick={() => history.push(`/`)}

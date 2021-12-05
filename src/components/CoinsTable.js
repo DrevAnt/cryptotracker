@@ -100,10 +100,10 @@ export default function CoinsTable() {
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
         <TextField
-          label="Search For Your Favorite Cryptocurrency"
+          label="Search by name or symbol"
           variant="outlined"
           style={{
-            margin: "1.5rem auto",
+            margin: "2rem auto",
             width: "80%",
             background:
               "linear-gradient(105deg, rgba(5,17,92,1) 14%, rgb(20 67 102) 48%, rgba(122,32,72,1) 88%)",

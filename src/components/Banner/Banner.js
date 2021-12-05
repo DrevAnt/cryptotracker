@@ -3,8 +3,8 @@ import Carousel from "./Carousel";
 
 const useStyles = makeStyles((theme) => ({
   banner: {
-    backgroundImage: "url(./globe.png)",
-    backgroundSize: "auto 75%",
+    backgroundImage: "url(./chart2.png)",
+    backgroundSize: "contain",
     backgroundPosition: "50% 10%",
     backgroundRepeat: "no-repeat",
   },
@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     textAlign: "center",
+    margin: "3rem 0",
+    paddingTop: "1rem",
   },
   carousel: {
     height: "50%",

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     height: "50%",
     display: "flex",
     alignItems: "center",
-    padding: "0.5rem",
+    padding: "1rem",
   },
   carouselItem: {
     display: "flex",

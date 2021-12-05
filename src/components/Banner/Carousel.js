@@ -7,14 +7,32 @@ import { TrendingCoins } from "../../config/api";
 import { CryptoState } from "../../CryptoContext";
 import { numberWithCommas } from "../CoinsTable";
 
+const useStyles = makeStyles((theme) => ({
+  carousel: {
+    height: "50%",
+    display: "flex",
+    alignItems: "center",
+    padding: "0.5rem",
+  },
+  carouselItem: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    cursor: "pointer",
+    textTransform: "uppercase",
+    color: "#b4c8d3",
+  },
+}));
+
 const Carousel = () => {
+  const classes = useStyles();
+
   const [trending, setTrending] = useState([]);
   const { currency, symbol } = CryptoState();
 
   const fetchTrendingCoins = async () => {
     const { data } = await axios.get(TrendingCoins(currency));
 
-    console.log(data);
     setTrending(data);
   };
 
@@ -22,24 +40,6 @@ const Carousel = () => {
     fetchTrendingCoins();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency]);
-
-  const useStyles = makeStyles((theme) => ({
-    carousel: {
-      height: "50%",
-      display: "flex",
-      alignItems: "center",
-    },
-    carouselItem: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      cursor: "pointer",
-      textTransform: "uppercase",
-      color: "white",
-    },
-  }));
-
-  const classes = useStyles();
 
   const items = trending.map((coin) => {
     let profit = coin?.price_change_percentage_24h >= 0;

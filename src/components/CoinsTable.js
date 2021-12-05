@@ -35,16 +35,27 @@ export default function CoinsTable() {
 
   const useStyles = makeStyles({
     row: {
-      backgroundColor: "#16171a",
+      backgroundColor: "rgb(15 61 95)",
       cursor: "pointer",
       "&:hover": {
-        backgroundColor: "#131111",
+        background:
+          "linear-gradient(105deg, rgba(5,17,92,1) 7%, rgb(20 67 102) 65%, rgba(122,32,72,1) 98%)",
+        color: "#b4c8d3",
       },
-      fontFamily: "Montserrat",
+    },
+    tableCell: {
+      color: "#b4c8d3",
+      fontWeight: "700",
+    },
+    tableHead: {
+      background:
+        "linear-gradient(105deg, rgba(23,33,100,1) 7%, rgb(20 67 102) 65%, rgba(122,32,72,1) 98%)",
+      color: "#b4c8d3",
+      borderTop: "1px solid rgba(0, 0, 0, 0.35)",
     },
     pagination: {
       "& .MuiPaginationItem-root": {
-        color: "gold",
+        color: "#b4c8d3",
       },
     },
   });
@@ -83,37 +94,39 @@ export default function CoinsTable() {
     );
   };
 
+  const tableRowData = ["Coin Name", "Price", "24h Change", "Market Cap"];
+
   return (
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
-        <Typography
-          variant="h4"
-          style={{ margin: 18, fontFamily: "Montserrat" }}
-        >
-          Cryptocurrency Prices by Market Cap
-        </Typography>
         <TextField
-          label="Search For a Crypto Currency.."
+          label="Search For Your Favorite Cryptocurrency"
           variant="outlined"
-          style={{ marginBottom: 20, width: "100%" }}
+          style={{
+            margin: "1.5rem auto",
+            width: "80%",
+            background:
+              "linear-gradient(105deg, rgba(5,17,92,1) 14%, rgb(20 67 102) 48%, rgba(122,32,72,1) 88%)",
+            color: "#b4c8d3",
+          }}
           onChange={(e) => setSearch(e.target.value)}
         />
+        <Typography variant="h4" style={{ margin: 18 }}>
+          Prices by Market Cap
+        </Typography>
+        {/* Table start */}
         <TableContainer component={Paper}>
           {loading ? (
-            <LinearProgress style={{ backgroundColor: "gold" }} />
+            <LinearProgress />
           ) : (
             <Table aria-label="simple table">
-              <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+              <TableHead className={classes.tableHead}>
                 <TableRow>
-                  {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
+                  {tableRowData.map((head) => (
                     <TableCell
-                      style={{
-                        color: "black",
-                        fontWeight: "700",
-                        fontFamily: "Montserrat",
-                      }}
+                      className={classes.tableCell}
                       key={head}
-                      align={head === "Coin" ? "" : "right"}
+                      align={head === "Coin Name" ? "" : "right"}
                     >
                       {head}
                     </TableCell>
@@ -153,6 +166,7 @@ export default function CoinsTable() {
                               style={{
                                 textTransform: "uppercase",
                                 fontSize: 22,
+                                color: "#b4c8d3",
                               }}
                             >
                               {row.symbol}
@@ -162,7 +176,12 @@ export default function CoinsTable() {
                             </span>
                           </div>
                         </TableCell>
-                        <TableCell align="right">
+                        <TableCell
+                          align="right"
+                          style={{
+                            color: "#b4c8d3",
+                          }}
+                        >
                           {symbol}{" "}
                           {numberWithCommas(row.current_price.toFixed(2))}
                         </TableCell>
@@ -176,7 +195,12 @@ export default function CoinsTable() {
                           {profit && "+"}
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>
-                        <TableCell align="right">
+                        <TableCell
+                          align="right"
+                          style={{
+                            color: "#b4c8d3",
+                          }}
+                        >
                           {symbol}{" "}
                           {numberWithCommas(
                             row.market_cap.toString().slice(0, -6)

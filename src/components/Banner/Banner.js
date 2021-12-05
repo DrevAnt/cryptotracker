@@ -3,7 +3,10 @@ import Carousel from "./Carousel";
 
 const useStyles = makeStyles((theme) => ({
   banner: {
-    backgroundImage: "url(./banner2.jpg)",
+    backgroundImage: "url(./globe.png)",
+    backgroundSize: "auto 75%",
+    backgroundPosition: "50% 10%",
+    backgroundRepeat: "no-repeat",
   },
   bannerContent: {
     height: 400,
@@ -14,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tagline: {
     display: "flex",
-    height: "40%",
+    height: "45%",
     flexDirection: "column",
     justifyContent: "center",
     textAlign: "center",
@@ -38,20 +41,19 @@ function Banner() {
             style={{
               fontWeight: "bold",
               marginBottom: 15,
-              fontFamily: "Montserrat",
+              fontFamily: "Roboto Condensed",
             }}
           >
-            Crypto Hunter
+            Crypto Tracker
           </Typography>
           <Typography
-            variant="subtitle2"
+            variant="h4"
             style={{
-              color: "darkgrey",
               textTransform: "capitalize",
-              fontFamily: "Montserrat",
+              fontFamily: "Roboto Condensed",
             }}
           >
-            Get all the Info regarding your favorite Crypto Currency
+            Info regarding your favorite Crypto Currency
           </Typography>
         </div>
         <Carousel />

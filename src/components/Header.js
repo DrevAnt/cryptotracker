@@ -17,7 +17,7 @@ import { CryptoState } from "../CryptoContext";
 const useStyles = makeStyles((theme) => ({
   title: {
     flex: 1,
-    color: "#e3e9ec",
+    color: "#b4c8d3",
     fontFamily: "Roboto Condensed",
     fontWeight: "bold",
     fontSize: "1.8rem",
@@ -25,9 +25,10 @@ const useStyles = makeStyles((theme) => ({
   },
   select: {
     width: 100,
-    color: "#e3e9ec",
+    color: "#b4c8d3",
     height: 40,
     marginLeft: 10,
+    fontFamily: "Roboto Condensed",
   },
 }));
 

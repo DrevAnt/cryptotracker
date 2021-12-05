@@ -7,9 +7,8 @@ import "./App.css";
 
 const useStyles = makeStyles(() => ({
   App: {
-    background: "rgb(13,21,77)",
     background:
-      "linear-gradient(90deg, rgba(13,21,77,1) 7%, rgb(15 63 98) 65%, rgba(122,32,72,1) 98%)",
+      "linear-gradient(105deg, rgba(13,21,77,1) 7%, rgb(20 67 102) 65%, rgba(122,32,72,1) 98%)",
     color: "#b4c8d3",
     minHeight: "100vh",
   },
